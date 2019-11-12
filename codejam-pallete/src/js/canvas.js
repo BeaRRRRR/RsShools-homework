@@ -19,6 +19,8 @@ export default class Canvas {
     this.down = false;
     // To restrict drawing pixel when clicking on canvas while using color-picker or bucket tool
     this.cantDraw = false;
+    // To restrict user from filling canvas when clicking with mouse if pencil tool or pick color tool is selected
+    this.cantFill = true;
 
     // draw the initial canvas on page load
     this.draw4();
@@ -51,6 +53,7 @@ export default class Canvas {
       colorInput.classList.remove('active');
 
       this.cantDraw = false;
+      this.cantFill = true;
     });
     fillTool.addEventListener('click', () => {
       pencil.classList.remove('active');
@@ -210,8 +213,9 @@ export default class Canvas {
 
 
     this.cantDraw = true;
+    this.cantFill = false;
     document.getElementById('canvas').addEventListener('click', (event) => {
-      if (this.cantDraw) {
+      if (this.cantDraw && !this.cantFill) {
         const col = Math.floor(event.offsetX / this.scale);
         const row = Math.floor(event.offsetY / this.scale);
         const imageData = this.ctx.getImageData(col * this.scale, row * this.scale, 1, 1).data;
@@ -309,6 +313,7 @@ export default class Canvas {
   }
 
   colorPicker() {
+    this.cantFill = true;
     this.cantDraw = true;
     this.canvas.addEventListener('click', (event) => {
       event.stopImmediatePropagation(); // One for some reason generates two events
