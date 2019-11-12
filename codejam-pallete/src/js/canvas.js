@@ -87,10 +87,22 @@ export default class Canvas {
 
     document.addEventListener('keypress', (event) => {
       if (event.key === 'c') {
+        pencil.classList.remove('active');
+        fillTool.classList.remove('active');
+        colorInput.classList.add('active');
+
         this.colorPicker();
       } else if (event.key === 'p') {
+        pencil.classList.add('active');
+        fillTool.classList.remove('active');
+        colorInput.classList.remove('active');
+
         this.cantDraw = false;
       } else if (event.key === 'b') {
+        pencil.classList.remove('active');
+        fillTool.classList.add('active');
+        colorInput.classList.remove('active');
+
         this.fill();
       }
     });
