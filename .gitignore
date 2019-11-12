@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Logs
 logs
 *.log
@@ -59,3 +60,10 @@ typings/
 
 # next.js build output
 .next
+=======
+
+.idea/
+node_modules/
+dist/
+
+>>>>>>> Stashed changes

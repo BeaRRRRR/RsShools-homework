@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Codejam canvas</title>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+<header>
+    <div class="nav-icon">
+        <img src="./../icons/nav-icon.svg">
+    </div>
+    <div class="title">CodeJam - Pallete</div>
+    <div class="menu-icon">
+        <img src="./../icons/menu-icon.svg">
+    </div>
+</header>
+<main>
+    <div class="tools">
+        <div class="tool-selection">
+            <div class="tool-selection__wrapper">
+                <div id="fill">
+                    <img src="./../icons/icon-share.svg">
+                    <p>Paint bucket</p>
+                </div>
+                <div id="colorInput">
+                    <img src="./../icons/icon-upload.svg">
+                    <!--                    <input type="color" id="colorInput" value="#C4C4C4">-->
+                    <!--                    <label for="colorInput">Choose color</label>-->
+                    <p>Choose color</p>
+                </div>
+                <div id="pencil">
+                    <img src="./../icons/pencil.svg">
+                    <p>Pencil</p>
+                </div>
+                <div id="transform">
+                    <img src="./../icons/transform-icon.svg">
+                    <p>Transform</p>
+                </div>
+            </div>
+        </div>
+        <div class="color-selection">
+            <div class="color-selection__wrapper">
+                <div id="currentColor">
+                    <div class="current-color-circle"></div>
+                    <p>Current color</p>
+                </div>
+                <div id="prevColor">
+                    <div class="previous-color-circle"></div>
+                    <p>Prev color</p>
+                </div>
+                <div id="red">
+                    <div class="red-circle"></div>
+                    <p>red</p>
+                </div>
+                <div id="blue">
+                    <div class="blue-circle"></div>
+                    <p>blue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas" height="512" width="512"></canvas>
+    <div class="switcher">
+        <div class="size-buttons">
+            <button id="4by4">4x4</button>
+            <button id="32by32">32x32</button>
+            <button id="256by256">256x256</button>
+            <button id="clear">Clear canvas</button>
+        </div>
+    </div>
+</main>
+</body>
+</html>
