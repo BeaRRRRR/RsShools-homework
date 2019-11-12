@@ -34,6 +34,7 @@ export default class Canvas {
     });
 
     const pencil = document.getElementById('pencil');
+    pencil.classList.add('active');
     const fillTool = document.getElementById('fill');
     const colorInput = document.getElementById('colorInput');
 
