@@ -7,8 +7,9 @@ export default class Canvas {
     // this.colorInput = document.getElementById('colorInput');
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
-    // Initial canvas must be 4 by 4 while 512px by 512px in width and height respectibvly, so one canvas element will be 512/4 = 128 times larger
-    this.scale = 128;
+    this.ctx.imageSmoothingEnabled = false;
+    // Initial canvas must be 128 by 128 while 512px by 512px in width and height respectibvly, so one canvas element will be 512/4 = 128 times larger
+    this.scale = 4;
     this.currentColor = '#C4C4C4';
     this.currentColorElement = document.getElementById('currentColor');
     this.prevColor = '#41F795';
@@ -23,18 +24,20 @@ export default class Canvas {
     this.cantFill = true;
 
     // draw the initial canvas on page load
-    this.draw4();
+    this.draw128();
 
-    document.getElementById('4by4').addEventListener('click', () => {
-      this.draw4();
-    });
-    document.getElementById('32by32').addEventListener('click', () => {
-      this.draw32();
+    document.getElementById('128by128').addEventListener('click', () => {
+      this.draw128();
     });
     document.getElementById('256by256').addEventListener('click', () => {
       this.draw256();
     });
-
+    document.getElementById('512by512').addEventListener('click', () => {
+      this.draw512();
+    });
+    document.getElementById('clear').addEventListener('click', () => {
+      this.ctx.clearRect(0, 0, 512, 512);
+    });
     const pencil = document.getElementById('pencil');
     pencil.classList.add('active');
     const fillTool = document.getElementById('fill');
@@ -110,8 +113,12 @@ export default class Canvas {
       }
     });
 
+    document.getElementById('grayscale').addEventListener('click', () => {
+      this.grayscale();
+    });
+
     window.onbeforeunload = () => {
-      localStorage.setItem(`canvas${512 / this.scale}`, this.canvas.toDataURL());
+      this.saveCanvas();
     };
   }
 
@@ -227,89 +234,110 @@ export default class Canvas {
     });
   }
 
+  grayscale() {
+    const imgData = this.ctx.getImageData(0, 0, 512, 512);
+    const pixels = imgData.data;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+      const lightness = parseInt(
+        pixels[i] * 0.299 + pixels[i + 1] * 0.587 + pixels[i + 2] * 0.114,
+        10,
+      );
+
+      pixels[i] = lightness;
+      pixels[i + 1] = lightness;
+      pixels[i + 2] = lightness;
+    }
+
+    this.ctx.putImageData(imgData, 0, 0);
+  }
+
   drawOnePixel(col, row) {
     this.ctx.fillStyle = this.currentColor;
     this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
   }
 
   drawImageFromUrl(url) {
-    const img = new Image();
-    img.src = url;
-    img.onload = () => {
-      this.ctx.drawImage(img, 0, 0, 512, 512);
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    this.canvas.height = 512 / this.scale;
+    this.canvas.width = this.canvas.height;
+    image.onload = () => {
+      if (image.width === image.height) {
+        this.ctx.drawImage(image, 0, 0, image.width, image.height);
+      } else if (image.width < image.height) {
+        this.ctx.drawImage(image, (512 - (image.width * 512) / image.height) / 2,
+          0, (image.width * 512) / image.height, 512);
+      } else if (image.width > image.height) {
+        this.ctx.drawImage(image, 0, (512 - (image.height * 512) / image.width) / 2,
+          512, (image.height * 512) / image.width);
+      }
+
+      this.saveCanvas();
     };
+    image.src = url;
   }
 
-  draw4() {
-    if (this.scale === 16) {
-      localStorage.setItem('canvas32', this.canvas.toDataURL());
-    } else if (this.scale === 2) {
-      localStorage.setItem('canvas256', this.canvas.toDataURL());
-    }
+  draw128() {
+    this.scale = 4;
+    this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
-    this.scale = 128;
-    if (localStorage.getItem('canvas4')) {
-      const dataURL = localStorage.getItem('canvas4');
-      this.drawImageFromUrl(dataURL);
-    } else {
-      const width = pixelCanvas4[0].length;
-      const height = pixelCanvas4.length;
-
-      this.canvas.width = width * this.scale;
-      this.canvas.height = height * this.scale;
-
-
-      for (let row = 0; row < height; row++) {
-        for (let col = 0; col < width; col++) {
-          this.ctx.fillStyle = pixelCanvas4[row][col];
-          this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
-        }
-      }
-    }
-  }
-
-  draw32() {
-    if (this.scale === 128) {
-      localStorage.setItem('canvas4', this.canvas.toDataURL());
-    } else if (this.scale === 2) {
-      localStorage.setItem('canvas256', this.canvas.toDataURL());
-    }
-    this.ctx.clearRect(0, 0, 512, 512);
-    this.scale = 16;
-
-    if (localStorage.getItem('canvas32')) {
-      const dataURL = localStorage.getItem('canvas32');
-      this.drawImageFromUrl(dataURL);
-    } else {
-      const width = pixelCanvas32[0].length;
-      const height = pixelCanvas32.length;
-      this.scale = 16;
-
-      this.canvas.width = width * this.scale;
-      this.canvas.height = height * this.scale;
-
-      for (let row = 0; row < height; row++) {
-        for (let col = 0; col < width; col++) {
-          // eslint-disable-next-line max-len
-          this.ctx.fillStyle = rgbaToHex(pixelCanvas32[row][col][0], pixelCanvas32[row][col][1], pixelCanvas32[row][col][2], pixelCanvas32[row][col][3]);
-          this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
-        }
-      }
-    }
+    this.canvas.width = 128;
+    this.canvas.height = 128;
+    this.loadCanvas();
+    // if (!this.loadCanvas()) {
+    //   const width = pixelCanvas4[0].length;
+    //   const height = pixelCanvas4.length;
+    //
+    //   this.canvas.width = width * this.scale;
+    //   this.canvas.height = height * this.scale;
+    //
+    //
+    //   for (let row = 0; row < height; row++) {
+    //     for (let col = 0; col < width; col++) {
+    //       this.ctx.fillStyle = pixelCanvas4[row][col];
+    //       this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
+    //     }
+    //   }
+    // }
   }
 
   draw256() {
-    if (this.scale === 16) {
-      localStorage.setItem('canvas32', this.canvas.toDataURL());
-    } else if (this.scale === 128) {
-      localStorage.setItem('canvas4', this.canvas.toDataURL());
-    }
-
-    this.ctx.clearRect(0, 0, 512, 512);
     this.scale = 2;
-    if (localStorage.getItem('canvas256')) {
-      this.drawImageFromUrl(localStorage.getItem('canvas256'));
-    }
+    this.saveCanvas();
+    this.ctx.clearRect(0, 0, 512, 512);
+    // this.saveCanvas();
+    this.canvas.width = 256;
+    this.canvas.height = 256;
+    this.loadCanvas();
+  }
+
+  draw512() {
+    this.scale = 1;
+    this.saveCanvas();
+    this.ctx.clearRect(0, 0, 512, 512);
+    // this.scale = 2;
+    //
+    // if (!this.loadCanvas()) {
+    //   const width = pixelCanvas32[0].length;
+    //   const height = pixelCanvas32.length;
+    //   this.scale = 16;
+    //
+    //   this.canvas.width = width * this.scale;
+    //   this.canvas.height = height * this.scale;
+    //
+    //   for (let row = 0; row < height; row++) {
+    //     for (let col = 0; col < width; col++) {
+    //       // eslint-disable-next-line max-len
+    //       this.ctx.fillStyle = rgbaToHex(pixelCanvas32[row][col][0], pixelCanvas32[row][col][1], pixelCanvas32[row][col][2], pixelCanvas32[row][col][3]);
+    //       this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
+    //     }
+    //   }
+    // }
+    // this.saveCanvas();
+    this.canvas.width = 512;
+    this.canvas.height = 512;
+    this.loadCanvas();
   }
 
   colorPicker() {
@@ -329,5 +357,19 @@ export default class Canvas {
     [this.currentColor, this.prevColor] = [currentColor, previousColor];
     this.prevColorElement.firstElementChild.style.backgroundColor = this.prevColor;
     this.currentColorElement.firstElementChild.style.backgroundColor = this.currentColor;
+  }
+
+  saveCanvas() {
+    // localStorage.setItem(`canvas${512 / this.scale}`, this.canvas.toDataURL());
+    localStorage.setItem('canvas', this.canvas.toDataURL());
+  }
+
+  loadCanvas() {
+    if (localStorage.getItem('canvas')) {
+      const dataURL = localStorage.getItem('canvas');
+      this.drawImageFromUrl(dataURL);
+      return true;
+    }
+    return false;
   }
 }

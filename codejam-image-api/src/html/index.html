@@ -61,12 +61,19 @@
         </div>
     </div>
     <canvas id="canvas" height="512" width="512"></canvas>
-    <div class="switcher">
-        <div class="size-buttons">
-            <button id="4by4">4x4</button>
-            <button id="32by32">32x32</button>
-            <button id="256by256">256x256</button>
-            <button id="clear">Clear canvas</button>
+    <div class="button-container">
+        <div class="switcher">
+            <div class="size-buttons">
+                <button id="128by128">128x128</button>
+                <button id="256by256">256x256</button>
+                <button id="512by512">512x512</button>
+                <button id="grayscale">Grayscale</button>
+                <button id="clear">Clear canvas</button>
+            </div>
+        </div>
+        <div class="search-container">
+            <input id="search-bar" type="text" class="search-bar">
+            <button id="searchSubmit" type="submit">Search</button>
         </div>
     </div>
 </main>

@@ -1,5 +1,5 @@
 {
-  "name": "codejam-canvas",
+  "name": "codejam-image-api",
   "version": "0.0.1",
   "description": "An RsShools hometask",
   "main": "index.js",
@@ -13,11 +13,13 @@
   "author": "BeaRRRRR",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.7.2",
     "autoprefixer": "^9.7.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",

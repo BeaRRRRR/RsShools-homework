@@ -58,9 +58,9 @@ main {
       display: flex;
 
       .tool-selection__wrapper {
-        //margin-left: 16px;
-        //margin-right: 16px;
+        width: 100%;
         margin-bottom: 30px;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -174,17 +174,28 @@ main {
     //margin-right: 155px;
     //margin-left: auto;
     align-self: flex-start;
+    image-rendering: pixelated;
+    width: 512px;
+    height: 512px;
   }
 
-  .switcher {
+
+  .button-container {
     margin-top: 79px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
     align-self: flex-start;
 
-    .size-buttons {
-      flex-wrap: wrap;
-      display: flex;
+    .switcher {
+      background: #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24), 0px 0px 4px rgba(0, 0, 0, 0.12);
+
+      .size-buttons {
+        flex-wrap: wrap;
+        display: flex;
+      }
+    }
+
+    .search-container {
+      margin-top: 10%;
     }
   }
 }
