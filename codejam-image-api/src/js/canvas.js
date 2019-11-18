@@ -1,5 +1,3 @@
-import pixelCanvas32 from '../data/32x32.json';
-import pixelCanvas4 from '../data/4x4.json';
 import rgbaToHex from './util/helper';
 
 export default class Canvas {
@@ -279,34 +277,19 @@ export default class Canvas {
   }
 
   draw128() {
+    this.loadCanvas();
     this.scale = 4;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
     this.canvas.width = 128;
     this.canvas.height = 128;
     this.loadCanvas();
-    // if (!this.loadCanvas()) {
-    //   const width = pixelCanvas4[0].length;
-    //   const height = pixelCanvas4.length;
-    //
-    //   this.canvas.width = width * this.scale;
-    //   this.canvas.height = height * this.scale;
-    //
-    //
-    //   for (let row = 0; row < height; row++) {
-    //     for (let col = 0; col < width; col++) {
-    //       this.ctx.fillStyle = pixelCanvas4[row][col];
-    //       this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
-    //     }
-    //   }
-    // }
   }
 
   draw256() {
     this.scale = 2;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
-    // this.saveCanvas();
     this.canvas.width = 256;
     this.canvas.height = 256;
     this.loadCanvas();
@@ -316,26 +299,7 @@ export default class Canvas {
     this.scale = 1;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
-    // this.scale = 2;
-    //
-    // if (!this.loadCanvas()) {
-    //   const width = pixelCanvas32[0].length;
-    //   const height = pixelCanvas32.length;
-    //   this.scale = 16;
-    //
-    //   this.canvas.width = width * this.scale;
-    //   this.canvas.height = height * this.scale;
-    //
-    //   for (let row = 0; row < height; row++) {
-    //     for (let col = 0; col < width; col++) {
-    //       // eslint-disable-next-line max-len
-    //       this.ctx.fillStyle = rgbaToHex(pixelCanvas32[row][col][0], pixelCanvas32[row][col][1], pixelCanvas32[row][col][2], pixelCanvas32[row][col][3]);
-    //       this.ctx.fillRect(col * this.scale, row * this.scale, this.scale, this.scale);
-    //     }
-    //   }
-    // }
-    // this.saveCanvas();
-    this.canvas.width = 512;
+   this.canvas.width = 512;
     this.canvas.height = 512;
     this.loadCanvas();
   }
@@ -360,7 +324,6 @@ export default class Canvas {
   }
 
   saveCanvas() {
-    // localStorage.setItem(`canvas${512 / this.scale}`, this.canvas.toDataURL());
     localStorage.setItem('canvas', this.canvas.toDataURL());
   }
 

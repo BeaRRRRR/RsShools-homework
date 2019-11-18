@@ -3,7 +3,7 @@ import netlifyIdentity from 'netlify-identity-widget';
 import Canvas from './js/canvas';
 
 netlifyIdentity.init({
-  container: '#netlify-modal', // defaults to document.body,
+  container: '#netlify-modal',
 });
 
 const canvas = new Canvas();
