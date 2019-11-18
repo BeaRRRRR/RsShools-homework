@@ -15,7 +15,8 @@
   "dependencies": {
     "@babel/runtime": "^7.7.2",
     "autoprefixer": "^9.7.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "netlify-identity-widget": "^1.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
