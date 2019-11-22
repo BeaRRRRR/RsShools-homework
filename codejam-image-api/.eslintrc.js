@@ -6,7 +6,7 @@ module.exports = {
   'rules': {
     'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
     'no-param-reassign': 'off',
-    'max-len': ['error', { 'ignoreComments': true , 'code' : 100}]
+    'max-len': ['error', { 'ignoreComments': true , 'ignoreTemplateLiterals' : true, 'code' : 100}]
   },
   'env': {
     'browser': true,

@@ -66,8 +66,9 @@ export default class Canvas {
 
     this.canvas.addEventListener('click', (event) => {
       if (!this.cantDraw) {
-        const col = Math.floor(event.offsetX / this.scale);
-        const row = Math.floor(event.offsetY / this.scale);
+        const col = Math.floor(event.offsetX / this.scale / this.scale);
+        const row = Math.floor(event.offsetY / this.scale / this.scale);
+        console.log(row);
         this.drawOnePixel(col, row);
       }
     });
@@ -150,8 +151,8 @@ export default class Canvas {
       if (!this.cantDraw) {
         this.down = true;
         this.cords = {
-          col: Math.floor(event.offsetX / this.scale),
-          row: Math.floor(event.offsetY / this.scale),
+          col: Math.floor(event.offsetX / (this.scale ** 2)),
+          row: Math.floor(event.offsetY / (this.scale ** 2)),
         };
       }
     });
@@ -159,8 +160,8 @@ export default class Canvas {
     document.getElementById('canvas').addEventListener('mousemove', (event) => {
       if (!this.cantDraw) {
         if (this.down) {
-          const col = Math.floor(event.offsetX / this.scale);
-          const row = Math.floor(event.offsetY / this.scale);
+          const col = Math.floor(event.offsetX / (this.scale ** 2));
+          const row = Math.floor(event.offsetY / (this.scale ** 2));
           line(this.cords.col, this.cords.row, col, row);
           this.cords.col = col;
           this.cords.row = row;
@@ -299,7 +300,7 @@ export default class Canvas {
     this.scale = 1;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
-   this.canvas.width = 512;
+    this.canvas.width = 512;
     this.canvas.height = 512;
     this.loadCanvas();
   }
