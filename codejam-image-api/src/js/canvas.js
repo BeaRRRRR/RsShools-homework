@@ -22,7 +22,7 @@ export default class Canvas {
     this.cantFill = true;
 
     // draw the initial canvas on page load
-    this.draw128();
+    this.draw512();
 
     document.getElementById('128by128').addEventListener('click', () => {
       this.draw128();
