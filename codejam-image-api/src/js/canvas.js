@@ -68,7 +68,6 @@ export default class Canvas {
       if (!this.cantDraw) {
         const col = Math.floor(event.offsetX / this.scale / this.scale);
         const row = Math.floor(event.offsetY / this.scale / this.scale);
-        console.log(row);
         this.drawOnePixel(col, row);
       }
     });
@@ -278,7 +277,6 @@ export default class Canvas {
   }
 
   draw128() {
-    this.loadCanvas();
     this.scale = 4;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
@@ -297,6 +295,7 @@ export default class Canvas {
   }
 
   draw512() {
+    this.loadCanvas();
     this.scale = 1;
     this.saveCanvas();
     this.ctx.clearRect(0, 0, 512, 512);
