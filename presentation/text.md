@@ -6,7 +6,8 @@ productivity while programming
 
 Most of you are probably using Windows or Mac OS, some of the more adventurous
 folks might be using Linux, but regardless of the operating system you are most 
-likey using a *Stacking Window Manager*
+likely using a *Stacking Window Manager*
+![Os market share](https://1.bp.blogspot.com/-KcJYAo4UfS8/XYb9qAgrYrI/AAAAAAAAGIg/jzE1AdGD0EMoOtXEaL3pSbXuQr9ZFx7vgCLcBGAsYHQ/s1600/Screenshot_20190922-102016_Video%2BPlayer.jpg)
 
 `(next slide)`
 
@@ -39,13 +40,14 @@ to the more popular approach of coordinate-based stacking of overlapping objects
 
 With a stacking wm your desktop will look similar to that
 ![stacking wm desktop example](https://i.redd.it/pl18txmpm1341.png)
+`(next vertical slide)`
 Or here is my workflow while writing a script for my talk ![Imgur](https://imgur.com/5JC7xXv.png)
 
 `(next slide)`
 
 See how everything is nice, clean and just non-cluttered. I have much more
 screen real estate compared to a stacking wm and I can move between windows at
-ease with my custom mappings (e.g Alt + H to switch to a window to the right)
+ease with my custom mappings (e.g Alt + H to switch to a window to the right),
 on the top I have a live preview of the markdown I am writing, and to the left
 I have a browser for finding information on the topic or just imagery for the 
 presentation.And of course you can apply everything I said above to your, let's
@@ -53,13 +55,13 @@ say, web programming workflow.
 
 `(next slide)`
 
-So how to get into all this stuff
+So how to get into all this stuff :thinking:
 
 `(next slide)`
 
 First you need a UNIX system, preferably some Linux distribution. My Linux 
 distro of choice and a distro I would recommend to anyone starting with Linux
-is Manjaro, I have used two distros in the past: Ubuntu which just have too
+is Manjaro, I have used two distros in the past: Ubuntu which just has too
 much stuff built in it by default while Arch Linux which, ironically, has 
 pretty much nothing built in it by default and is just too hard to get going 
 with.
@@ -95,7 +97,7 @@ use ![default i3 config](https://i3wm.org/docs/layout-saving-1.png).
 
 Well the default config is pretty good, but the point of using such window
 managers and Linux on the whole is that you can customize it to your desired
-needs so open the config file which is located somewhere in ~/i3/.config ,open
+needs so open the config file which is located somewhere in ~/i3/config ,open
 the docs and start tinkering!
 
 `(next slide)`
@@ -130,7 +132,7 @@ added bonus you'll look like a hacker for everyone looks at your monitor :D
 
 Now that you've switched to Linux with a tiling wm its time to start learning 
 new things - customize your terminal, use a different shell instead of bash,
-switch to vim or emacs as your primary text editor, learn touch typing,
+switch to Vim or emacs as your primary text editor, learn touch typing,
 switch to a different keyboard layout and your editing speed and 
 productivity will increase massively
 

@@ -1,49 +1,217 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## How to improve your programming productivity
 
-		<script src="js/reveal.js"></script>
+            Hello, my name is Kedzel Mikhail, and this is my guide on how to improve your
+            productivity while programming
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template style="font-size: 12px">
+            Most of you are probably using Windows or Mac OS, some of the more adventurous
+            folks might be using Linux, but regardless of the operating system you are most
+            likely using a *Stacking Window Manager*
+            ![Os market share](https://1.bp.blogspot.com/-KcJYAo4UfS8/XYb9qAgrYrI/AAAAAAAAGIg/jzE1AdGD0EMoOtXEaL3pSbXuQr9ZFx7vgCLcBGAsYHQ/s1600/Screenshot_20190922-102016_Video%2BPlayer.jpg)
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## WM = Window Manager
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              #### A stacking window manager - is a window manager that draws all windows in a specific order, allowing them to overlap.
+            </textarea>
+          </section>
+          <section data-markdown>
+            ![stacking layout example](https://www.linux.org/attachments/kazam_icewm-png.1753/)
+          </section>
+          <section data-markdown>
+            ![even worse stacking layout example](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/FLWM_Screenshot.png/1200px-FLWM_Screenshot.png)
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Tiling Window Managers
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            A tiling window manager - is a window manager with
+            an organization of the screen into mutually non-overlapping frames, as opposed
+            to the more popular approach of coordinate-based stacking of overlapping objects 
+            (windows).
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            ![stacking wm desktop example](https://i.redd.it/pl18txmpm1341.png)
+          </section>
+          <section data-markdown>
+            ![Imgur](https://imgur.com/5JC7xXv.png)
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### Benefits of *tiling wms*
+            * Clean looking
+            * Way less clutter
+            * Every window is visible
+            * Space is shared evenly between windows
+            * Keyboard(home row) oriented mappings for moving between windows
+          </textarea>
+        </section>
+        <section data-markdown>
+         <textarea data-template>
+           ## How to get into all of this
+           <img src="https://i.gifer.com/origin/6b/6bd46e83cec1fc9390a64e9ae7e085f2_w200.gif" alt="thinking emoji" style="height: auto;max-height: 200px;max-width: 200px;">
+         </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ### You need a UNIX system, preferably some Linux distribution
+            * Ubuntu - too much stuff build in it
+            * Arch Linux - pretty much nothing build in it at all
+            * Manjaro - just perfect
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            Manjaro is the perfect distro because its built on top of Arch Linux and
+            has all its pros while being much more user friendly
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+            <img src="https://zenway.ru/uploads/obzori/manjaro/manjarolite_015.png" alt="manjaro" style="max-width: 389px; max-height: 418px">
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            1. Head to [manjaro's website](https://manjaro.org/download/)
+            2. Choose architect edition
+            3. While installing choose i3 as the window manager
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            There are many tiling window managers but i3 is the perfect one for a beginner
+            * Good documentation
+            * Very popular
+            * Easy to get started with
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              #### Manjaro comes with i3 already configured a bit, so it is easier for a non
+              experienced user
+            </textarea>
+          </section>
+          <section>
+            <h4>Default Manjaro i3 config and look</h4>
+            <img src="https://pbs.twimg.com/media/EEV3pSQWwAECeJ1.png">
+          </section>
+          <section >
+            <h4>Default i3 config and look</h4>
+            <img src="https://i3wm.org/docs/layout-saving-1.png">
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### The point of using Linux is customizing everything to your needs so open
+            the config file located at `~/i3/config`and start tinkering!
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              * ricing - making visual improvements and customizations on one's desktop
+              * best place to look for rices - r/unixporn
+            </textarea>
+          </section>
+          <section>
+            <img class="stretch" src="https://i.redd.it/kobla5v7r5i21.png" alt="rice exampele 1">
+          </section>
+          <section>
+            <img src="https://i.redd.it/chrwy3rt40g21.png" alt="rice exampele 2">
+          </section>
+          <section>
+            <img src="https://i.redd.it/ojv3rfwdna431.png" alt="rice exampele 3">
+          </section>
+          <section>
+            <img src="https://i.redd.it/8onlcv91d3s31.jpg" alt="rice exampele 4">
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### More stuff you can do
+            * Customize your terminal
+            * Use a different shell other than bash
+            * Switch to Vim or emacs
+            * Learn touch typing
+            * Switch to a different keyboard layout(e.g DVORAK, WORKMAN)
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## The process is as satisfying as the end result itself
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### My talk touched only the tip of the iceberg,
+            so go on and explore the Linux ecosystem!
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            Thank you for your attention
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
