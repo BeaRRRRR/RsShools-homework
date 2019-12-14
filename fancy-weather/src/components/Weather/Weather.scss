@@ -1,0 +1,81 @@
+.Weather {
+  margin-top: 57px;
+  position: relative;
+
+  .address {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 54px;
+
+    /* identical to box height */
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+  }
+
+  .time {
+    margin-top: 4px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #FFFFFF;
+  }
+
+  .wrapper {
+    display: flex;
+    margin: 0;
+    .temperature {
+      margin: 0;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 306px;
+      line-height: 373px;
+
+      /* identical to box height */
+      text-transform: uppercase;
+
+      color: #FFFFFF;
+
+    }
+
+    .icon {
+      margin-right: auto;
+      margin-left: 80px;
+      margin-top: 55px;
+
+      color: white;
+
+      .icon_svg {
+        transform: scale(8);
+      }
+    }
+
+    .info {
+      margin-right: auto;
+      margin-left: -64px;
+      margin-top: 154px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 37px;
+
+      /* or 168% */
+      text-transform: uppercase;
+
+      color: #FFFFFF;
+
+    }
+  }
+}
+
+

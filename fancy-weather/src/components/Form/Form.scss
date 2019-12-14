@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+
+  .search {
+    width: 274px;
+    color: #FFFFFF;
+
+    &::placeholder {
+      color: #FFFFFF;
+    }
+
+    div {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .submit {
+    height: 100%;
+    width: 50px;
+    flex: 1;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
