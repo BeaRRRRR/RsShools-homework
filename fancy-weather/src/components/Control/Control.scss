@@ -1,9 +1,35 @@
 .Control {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   & > .langInput {
+    margin-left: 20px;
     min-width: 120px;
+
+    label {
+      color: white;
+    }
+
+    svg {
+      color: white;
+    }
+
+    #demo-simple-select {
+      color: white;
+    }
+
+    .select {
+
+      &:after {
+        border-color: white;
+        color: white;
+      }
+
+      &:before {
+        border-color: white;
+        color: white;
+      }
+    }
   }
 
   & > .refresh-icon {

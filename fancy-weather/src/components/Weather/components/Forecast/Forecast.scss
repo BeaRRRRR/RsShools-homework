@@ -1,0 +1,44 @@
+.Forecast {
+  display: flex;
+  & > .day {
+    &:nth-child(2) {
+      margin-left: 51px;
+      margin-right: 51px;
+    }
+    & > .day-of-week {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 27px;
+
+      /* identical to box height */
+      text-transform: uppercase;
+
+      color: #FFFFFF;
+    }
+
+    & > .wrapper {
+      display: flex;
+
+      & > p {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 80px;
+        line-height: 98px;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
+
+        margin-bottom: 10px;
+      }
+
+      .icon {
+        color: white;
+
+      }
+
+    }
+  }
+}

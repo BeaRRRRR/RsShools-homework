@@ -48,14 +48,14 @@
 
     .icon {
       margin-right: auto;
-      margin-left: 80px;
-      margin-top: 55px;
+      margin-left: -3px;
+      margin-top: -28px;
 
       color: white;
 
-      .icon_svg {
-        transform: scale(8);
-      }
+      //.icon_svg {
+      //  transform: scale(8);
+      //}
     }
 
     .info {
@@ -68,12 +68,9 @@
       font-weight: bold;
       font-size: 22px;
       line-height: 37px;
-
-      /* or 168% */
       text-transform: uppercase;
 
       color: #FFFFFF;
-
     }
   }
 }

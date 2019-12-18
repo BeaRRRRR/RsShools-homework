@@ -6,6 +6,6 @@ export async function addressToCords(address) {
 }
 
 export async function cordsToAddress(lat, lon) {
-  const address = await (await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${`${lat},${lon}`}&result_type=country|locality&key=${geoApiKey}`)).json();
+  const address = await (await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${`${lat},${lon}`}&result_type=country|political&key=${geoApiKey}`)).json();
   return address;
 }

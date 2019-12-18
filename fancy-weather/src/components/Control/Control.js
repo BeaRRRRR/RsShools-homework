@@ -11,16 +11,24 @@ function Control(props) {
   return (
     <div className="Control">
       <div className="refresh-icon">
-        <IconButton className="button">
+        <IconButton className="button" onClick={props.changeBg}>
           <RefreshIcon />
         </IconButton>
       </div>
-      <FormControl className="langInput">
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <FormControl
+        className="langInput"
+        classes={{
+          root: {
+            backgroundColor: 'white',
+            color: 'white',
+          },
+        }}
+      >
+        <InputLabel id="demo-simple-select-label">Language</InputLabel>
         <Select
+          className="select"
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value=""
           onChange={props.handleChange}
         >
           <MenuItem value="en">English</MenuItem>

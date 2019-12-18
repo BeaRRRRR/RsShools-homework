@@ -2,7 +2,6 @@
   "name": "fancy-weather",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
   "nohoist": [
     "**/babel-preset-react-app/@babel/runtime"
   ],
@@ -40,6 +39,7 @@
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
+    "mapbox-gl": "^1.6.0",
     "mini-css-extract-plugin": "0.8.0",
     "normalize.css": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
@@ -50,6 +50,7 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "react": "^16.12.0",
+    "react-animated-weather": "^3.0.0",
     "react-app-polyfill": "^1.0.5",
     "react-dev-utils": "^10.0.0",
     "react-dom": "^16.12.0",

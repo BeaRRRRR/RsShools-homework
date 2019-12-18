@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import Grid from '@material-ui/core/Grid';
 import Form from '../Form/Form';
+import Map from '../Map/Map';
 import Weather from '../Weather/Weather';
 import Control from '../Control/Control';
-import { getWeatherByAddress, getWeatherByCords } from '../../utils/getWeatherData';
+import {
+  getWeatherByAddress, getWeatherByCords, getForecastByAddress, getForecastByCords,
+} from '../../utils/api/getWeatherData';
 import { cordsToAddress } from '../../utils/api/geocoding';
 import { getRandomImage } from '../../utils/api/unsplash';
 
@@ -16,14 +18,16 @@ function App() {
   async function fetchData(e) {
     e.preventDefault();
     const address = e.target.elements.address.value;
-    let data = await getWeatherByAddress(address);
-    data = { ...data, address };
-    setWeather(data);
+    const [data, forecast] = await Promise.all([
+      getWeatherByAddress(address),
+      getForecastByAddress(address),
+    ]);
+    const newWeather = { ...data, address, forecast };
+    setWeather(newWeather);
   }
 
   async function changeLang(e) {
     e.preventDefault();
-    console.log(e.target);
   }
 
   async function fetchBgImage() {
@@ -35,12 +39,19 @@ function App() {
     fetchBgImage();
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
-      let data = await getWeatherByCords(latitude, longitude);
-      const addressJson = await cordsToAddress(latitude, longitude);
-      data = { ...data, address: addressJson.results[0].formatted_address };
-      setWeather(data);
-      console.log('rerender');
-    });
+      const [data, forecast, addressJson] = await Promise.all([
+        getWeatherByCords(latitude, longitude),
+        getForecastByCords(latitude, longitude),
+        cordsToAddress(latitude, longitude),
+      ]);
+      const newWeather = {
+        ...data,
+        address: addressJson.results[0].formatted_address,
+        forecast,
+        timezone: data.timezone,
+      };
+      setWeather(newWeather);
+    }, () => alert('You must have geolocation enabled'), { enableHighAccuracy: true });
   }, []);
 
 
@@ -48,14 +59,17 @@ function App() {
     <div className="App">
       <div className="wrapper">
         <div className="first-column">
-          <Control changeLang={changeLang} />
+          <Control
+            changeLang={changeLang}
+            changeBg={fetchBgImage}
+          />
           <Weather
             data={weather}
           />
         </div>
         <div className="second-column">
           <Form getWeather={fetchData} />
-          <div>Map</div>
+          <Map />
         </div>
       </div>
       <img src={background} alt="background image" />
