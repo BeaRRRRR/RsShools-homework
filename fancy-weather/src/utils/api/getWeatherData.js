@@ -15,7 +15,8 @@ export async function getForecastByCords(lat, lon) {
   const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=en&units=metric&APPID=3a8ab49bbd117bd6b66e163bbaa0f196`);
   const json = await res.json();
   const { list } = json;
-  return [list[0], list[8], list[17]];
+  const hours = Math.floor((new Date().getHours() - 12) / 3);
+  return [list[8 - hours], list[16 - hours], list[25 - hours]];
 }
 
 export async function getForecastByAddress(address) {

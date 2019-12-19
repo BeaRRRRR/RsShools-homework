@@ -1,32 +1,12 @@
 import React from 'react';
-import CloudIcon from '@material-ui/icons/Cloud';
-import ReactAnimatedWeather from 'react-animated-weather';
 import './Forecast.scss';
-import iconsMap from '../../../../utils/iconsMap';
+import Day from './Day';
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-function Day({ temp, day, iconId }) {
-  return (
-    <div className="day">
-      <p className="day-of-week">{day}</p>
-      <div className="wrapper">
-        <p>{temp}</p>
-        <div className="icon">
-          <ReactAnimatedWeather
-            icon={iconsMap(iconId)}
-            color="#FFFFFF"
-            size={85}
-            animate
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 function Forecast({ forecast }) {
-  const dayIndex = new Date(Date.now() + forecast.timezone).getDay();
+  const dayIndex = new Date(Date.now() + forecast.timezone).getDay() + 1;
+  console.log(forecast);
   return (
     <div className="Forecast">
       <Day

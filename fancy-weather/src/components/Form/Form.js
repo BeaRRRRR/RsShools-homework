@@ -14,6 +14,7 @@ function Form(props) {
           type="text"
           id="address"
           name="address"
+          style={{color : 'white'}}
         />
         <Button variant="outlined" className="submit" type="submit">Submit</Button>
       </form>
