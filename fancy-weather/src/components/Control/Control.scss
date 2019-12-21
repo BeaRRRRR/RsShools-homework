@@ -1,0 +1,44 @@
+.Control {
+  display: flex;
+  align-items: center;
+
+  & > .langInput {
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 120px;
+
+    label {
+      color: white;
+    }
+
+    svg {
+      color: white;
+    }
+
+    #demo-simple-select {
+      color: white;
+    }
+
+    .select {
+
+      &:after {
+        border-color: white;
+        color: white;
+      }
+
+      &:before {
+        border-color: white;
+        color: white;
+      }
+    }
+  }
+
+  & > .refresh-icon {
+    border: 1px solid white;
+    border-radius: 4px;
+
+    & > .button {
+      color: white
+    }
+  }
+}

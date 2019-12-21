@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+
+  .search {
+    width: 274px;
+    color: #FFFFFF;
+
+    & > label {
+      color: #FFFFFF;
+    }
+
+    & > div > fieldset {
+      border-color: white;
+    }
+
+
+    div {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .submit {
+    height: 100%;
+    width: 101px;
+    flex: 1;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    color: white;
+    border-color: white;
+  }
+}
